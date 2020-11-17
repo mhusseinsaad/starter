@@ -1,0 +1,470 @@
+$mainColor: #0c9fe2;
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'PT Serif', serif;
+}
+// mixins
+@mixin overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+// extend
+%paragraph {
+    color: #b3abab;
+    font-style: italic;
+}
+// start about us 
+.bg-light {
+    background-color: transparent !important;
+}
+.navbar-expand-lg {
+    justify-content: space-between !important;
+}
+.navbar-collapse {
+    flex-grow: 0;
+}
+.navbar-toggler {
+    background-color: #FFF;
+    border: none;
+}
+.navbar-light .navbar-brand{
+    color: #FFF;
+    font-size: 34px;
+    font-weight: bold;
+    letter-spacing: 2.5px;
+    transition: all .5s ease-in-out;
+    @media (max-width:575px) {
+        font-size: 20px;
+    }
+}
+.about-us {
+    background: url('../images/about-cover.jpg');
+    background-size: cover !important;
+    position: relative;
+    min-height: 600px;
+    h1 {
+        color: #FFF;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 68px;
+        z-index: 1;
+        @media (max-width:575px) {
+            font-size: 40px;
+        }
+    }
+    .overlay {
+        @include overlay;
+        background-color: rgba(0,0,0,.3);
+        .navbar-nav {
+            .nav-item {
+                font-size: 18px;
+                a {
+                    color: #FFF;
+                    cursor: pointer;
+                    transition: all .3s ease-in-out;
+                    &:hover {
+                        color: #000;
+                    }
+                }
+                &:not(:last-of-type) {
+                    margin-right: 12px;
+                }
+                &:last-of-type {
+                    background-color: $mainColor;
+                    width: 110px;
+                    text-align: center;
+                }
+            }
+        @media (min-width: 576px) and (max-width: 991px) {
+            background-color: #333;
+            padding: 20px;
+            width: 50%;
+            float: right;
+            position: relative;
+            z-index: 2;
+        }
+        @media (max-width:575px) {
+            background-color: #333;
+            padding: 20px;
+            width: 100%;
+            float: right;
+            position: relative;
+            z-index: 2;
+        }
+        }
+        }
+    }
+
+// End about us 
+
+// start grow UP 
+.grow-up {
+    padding-top: 80px;
+    padding-bottom: 120px;
+    background-color: #dddddd36;
+    overflow: hidden;
+    @media (max-width: 991px) {
+        text-align: center;
+        padding-bottom: 60px;
+    }
+    .images-box{
+        position: relative;
+        img {
+            position: absolute;
+            padding:1px;
+            border: 2px solid #CCC;
+            border-radius: 10px;
+            &:last-of-type {
+                top: 110px;
+                right: 175px;
+            }
+            @media (max-width: 991px) {
+                position: static;
+                margin: 20px;
+            }
+        }
+    }
+    .text-desc {
+        margin-top: 40px;
+        h2 {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        p {
+            @extend %paragraph;
+            margin-bottom: 10px;
+        }
+        a {
+            color: #333;
+            font-weight: 600;
+            text-decoration: none;
+            i {
+                color: $mainColor;
+                margin-left: 10px;
+            }
+        }
+    }
+}
+// End grow UP 
+// start statics 
+.statics {
+    background-color: #dddddd36;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    margin-bottom: 50px;
+    h2 {
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+    p {
+        @extend %paragraph;
+        margin-bottom: 10px;
+        width: 55%;
+        margin: auto;
+    }
+    .statics-box {
+        padding-top: 40px;
+        position: relative;
+        &:not(:last-of-type) {
+            &::after {
+            content: "";
+            position: absolute;
+            width: 3px;
+            height: 100%;
+            background: #28a7454f;
+            z-index: 1000;
+            right: 0;
+            top: 20px;
+        }
+    }
+        @media (max-width: 767px) {
+            &:not(:last-of-type) {
+                &::after {
+                width: 0px;
+                height: 0px;
+            }
+        }
+        }
+        span {
+            font-style: italic;
+            display: block;
+            color: $mainColor;
+            font-size: 50px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    }
+}
+// End statics 
+// start goals 
+.goals {
+    padding-top: 20px;
+    padding-bottom: 90px;
+    h2 {
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+    p {
+        @extend %paragraph;
+        margin-bottom: 10px;
+        line-height: 1.9;
+    }
+    span {
+        display: block;
+        color: #b3abab;
+        font-style: italic;
+        margin-bottom: 10px;
+        i {
+            color: $mainColor;
+            margin-right: 10px;;
+        }
+    }
+    a {
+        font-weight: bold;
+        text-decoration: none;
+        color: $mainColor;
+        margin-top: 17px;
+        display: block;
+        i {
+            margin-left: 10px;
+        }
+    }
+    .goals-image{
+        @media (max-width: 991px) {
+            margin-top: 40px;
+        }
+        img {
+            width: 100%;
+        }
+    }
+}
+// End goals 
+// start section members 
+.our-members {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color:#dddddd36;
+    h2 {
+        margin-bottom: 40px;
+        font-weight: bold;
+    }
+    .member-box {
+        position: relative;
+        @media (max-width: 991px) {
+            margin-bottom: 30px;
+        };
+        &:not(:last-of-type) {
+            &::after {
+                content: "";
+                position: absolute;
+                width: 3px;
+                height: 53%;
+                background-color: #28a7454f;
+                right: 0;
+                top: 0;
+            }
+            @media (max-width: 991px) {
+                &::after {
+                    width: 0px;
+                    height: 0;
+    
+                }
+            }
+        }
+        img {
+            margin-bottom: 20px;
+        }
+        h5 {
+            font-weight: bold;
+        }
+        span {
+            display: block;
+            font-size: 22px;
+            color: $mainColor;
+            margin-bottom: 10px;
+        }
+        i {
+            width: 35px;
+            height: 35px;
+            color: #FFF;
+            font-size: 17px;
+            line-height: 35px;
+            margin-right: 5px;
+            cursor: pointer;
+            transition: all .4s ease-in-out;
+            &:first-of-type {
+                background-color: #385898;
+            }
+            &:nth-of-type(2) {
+                background-color: $mainColor;
+            }
+            &:last-of-type {
+                background-color: #bd6568;
+            }
+
+        }
+    }
+}
+// End section members 
+// start secion Hiring 
+.hiring {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    @media (max-width : 767px) {
+        text-align: center;
+    }
+    .text-box {
+        padding: 50px;
+        h2 {
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: 44px;;
+        }
+        p {
+            @extend %paragraph;
+        }
+        button {
+            border: none;
+            background-color: $mainColor;
+            width: 120px;
+            height: 40px;
+            color: #FFF;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+    }
+
+}
+// End secion Hiring 
+// start section subscripe 
+.subscripe {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background-color: #dddddd36;
+    @media (max-width: 767px) {
+        text-align: center;
+    }
+    .text-desc {
+        h2 {
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-size: 27px;;
+        }
+        p{
+            @extend %paragraph;
+            width: 80%;
+            line-height: 1.7;
+            @media (max-width: 767px) {
+                width: 100%;
+            }
+        }
+
+    }
+    .input {
+        position: relative;
+        input {
+            height: 50px;
+            &:focus {
+                &::placeholder {
+                    opacity: 0;
+                }
+            }
+        }
+        button {
+            border: none;
+            background-color: $mainColor;
+            width: 120px;
+            height: 50px;
+            color: #FFF;
+            border-radius: 5px;
+            margin-top: 10px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            outline: none;
+        }
+    }
+}
+// End section subscripe 
+// start section company 
+.company {
+    padding-top: 80px;
+    padding-bottom: 30px;
+    .company-box {
+        @media (max-width: 991px) {
+            margin-bottom: 40px;
+        }
+        h4 {
+            color: $mainColor;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        p {
+            @extend %paragraph;
+            line-height: 2.1;
+        }
+        i {
+            width: 40px;
+            height: 40px;
+            color: #FFF;
+            font-size: 25px;
+            line-height: 40px;
+            margin-right: 5px;
+            cursor: pointer;
+            transition: all .4s ease-in-out;
+            &:first-of-type {
+                background-color: #385898;
+            }
+            &:nth-of-type(2) {
+                background-color: $mainColor;
+            }            
+            &:nth-of-type(3) {
+                background-color: #bd6568;
+            }            
+            &:last-of-type {
+                background-color: #47c547;
+            }
+    }
+    }
+}
+// End section company 
+// start section footer 
+.footer {
+    background-color:#ddddddd1;
+    padding: 15px;
+    font-weight: bold;
+    span {
+        color: $mainColor;
+    }
+}
+// End section footer 
+// start to top button 
+.to-top {
+    position: fixed;
+    right: -53px;
+    bottom: 55px;
+    width: 50px;
+    height: 50px;
+    background-color: #0c9fe2;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    transform: rotate(90deg);
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    i {
+        color: #FFF;
+        font-size: 25px;
+    }
+
+}
+// end to top button 
